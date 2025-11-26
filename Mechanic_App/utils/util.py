@@ -4,9 +4,10 @@ from jose import jwt, JWTError, ExpiredSignatureError
 from datetime import datetime, timezone, timedelta
 from flask import request, jsonify
 from functools import wraps
-#import os
+import os
 
-SECRET_KEY = "Gee Mechanic Shop"
+SECRET_KEY = os.environ.get('SECRET_KEY') or "Gee Mechanic Shop"
+
 
 #Encode token for customer
 def encode_token(customer_id):
